@@ -4,6 +4,7 @@ const api = {
 };
 
 const searchBox = document.querySelector('.search-box');
+const body = document.querySelector('#body');
 
 searchBox.addEventListener('keyup', setQuery);
 
@@ -20,6 +21,7 @@ function getResults(query) {
 }
 
 function displayResults(weather) {
+    console.log(weather);
     let city = document.querySelector('.location .city');
     city.innerHTML = `${weather.name}, ${weather.sys.country}`;
 
@@ -32,6 +34,13 @@ function displayResults(weather) {
 
     let weatherEl = document.querySelector('.weather');
     weatherEl.innerHTML = weather.weather[0].main;
+
+    switch (weatherEl.textContent) {
+        case 'Clouds' : body.style.cssText = 'background-image: url(img/cloud.jpg);'; break;
+        case 'Clear' : body.style.cssText = 'background-image: url(img/clear.jpg);'; break;
+        case 'Drizzle' : body.style.cssText = 'background-image: url(img/rain.jpg);'; break;
+        case 'Rain' : body.style.cssText = 'background-image: url(img/rain.jpg);'; break;
+    }
 
     let hightLow = document.querySelector('.hight-low');
     hightLow.innerHTML = `${Math.round(weather.main.temp_min)}<span>°C</span> / ${Math.round(weather.main.temp_max)}<span>°C</span>`;
