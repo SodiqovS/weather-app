@@ -44,7 +44,6 @@ header input {
 header input:focus {
     background-color:rgba(255, 255, 255, 0.8);
     border-radius: 0px 16px 0 16px;
-
 }
 
 main {
@@ -100,10 +99,10 @@ main {
 
 @media (max-width: 900px) {
     .app-wrap {
-        grid-template-columns: 100%;
+        grid-template-columns: 100%;     
     }
 
-    .main {
-        margin-top: 50px;
+    main {
+        margin-top: 20px;
     }
 }
